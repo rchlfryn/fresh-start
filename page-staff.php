@@ -19,7 +19,7 @@
 
 				<div id="inner-content" class="wrap cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -36,7 +36,7 @@
 
 								</header>
 
-								<section class="entry-content cf" itemprop="articleBody">
+								<section class="entry-content cf d-1of2" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)
 										the_content();
@@ -53,14 +53,18 @@
 										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
 										 *
 										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
+
 									?>
+									
+
+								    
+
 								</section>
+								<div class="d-1of2">
+
+								    	Post Object Custom Field: <?php the_field('second_column'); ?>
+								    </div>
+								
 
 
 								<footer class="article-footer">
@@ -91,7 +95,6 @@
 
 						</main>
 
-						<?php get_sidebar(); ?>
 
 				</div>
 
