@@ -25,11 +25,13 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
+<!--
 								<header class="article-header">
 
 									<h1 class="page-title"><?php the_title(); ?></h1>
  
 								</header>
+-->
 
 								<section class="entry-content cf d-1of2" itemprop="articleBody">
 									<?php
@@ -55,11 +57,15 @@
 								    
 
 								</section>
-								<section class="entry-content cf d-1of2" itemprop="articleBody">
+								<section class="entry-content cf d-1of2">
 								<?php the_field('second_column'); ?>
 								</section>
 								
 								<div class="clearfix"></div>
+								
+								<section class="entry-content cf d-all" >
+								<?php the_field('about'); ?>
+								</section>
 
 
 								<?php comments_template(); ?>
