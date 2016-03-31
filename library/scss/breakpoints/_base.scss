@@ -17,10 +17,12 @@ GENERAL STYLES
 
 body {
 	font-family: $main-font;
-	font-size: 100%;
-	line-height: 1.5;
+	font-size: 24px;
+	line-height: 1;
 	color: $text-color;
-	background-color: $gray;
+	background: url('../../images/jamo.png') no-repeat fixed;
+	background-position: left bottom;
+	background-color: rgba(45, 45, 45, 1);
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 }
@@ -122,7 +124,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 2.2em;
 	line-height: 1.333em;
 }
 
@@ -154,13 +156,22 @@ HEADER STYLES
 
 .header {
 	background-color: $black;
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
 }
 
 	#logo {
-		margin: 0.75em 0;
+		margin-top: 0.15em;
+		text-align: center;
 
 		a {
 			color: $white;
+		}
+		
+		img{
+			max-width: 100px;
 		}
 	}
 
@@ -186,7 +197,7 @@ and more scalable.
 			display: block;
 			color: $white;
 			text-decoration: none;
-			padding: 0.75em;
+			padding: 0 0.75em 0.75em;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -252,18 +263,18 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 1.5em;
+	margin-top: 7em;
 }
 
 		.hentry {
-			background-color: $white;
+// 			background-color: rgba(#323944, .8);
 			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
 			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
+				padding: 1em;
+				margin: .5em 0;
+				background-color: rgba(#323944, .8);
 			}
 
 			footer {
@@ -312,7 +323,8 @@ POSTS & CONTENT STYLES
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			padding: 1.5em 1em 0;
+			background-color: rgba(#323944, .8);
 
 			p {
 				margin: 0 0 1.5em;
