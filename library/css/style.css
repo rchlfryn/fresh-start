@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 /*! Made with Bones: http://themble.com/bones :) */
 /******************************************************************
 Site Name:
@@ -872,14 +873,13 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 .blue-btn, .comment-reply-link, #submit {
   display: inline-block;
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Economica", "Open Sans", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9em;
-  font-size: 34px;
+  font-size: 28px;
   line-height: 34px;
   font-weight: normal;
-  padding: 0 24px;
+  padding: 4px 24px;
   border-radius: 4px;
   border: 0;
   cursor: pointer;
@@ -898,11 +898,11 @@ You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
 .blue-btn, .comment-reply-link, #submit {
-  background-color: #2980b9; }
+  background-color: #cfb500; }
   .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
-    background-color: #2574a8; }
+    background-color: #bba300; }
   .blue-btn:active, .comment-reply-link:active, #submit:active {
-    background-color: #2472a4; }
+    background-color: #b59f00; }
 
 /******************************************************************
 Site Name:
@@ -938,7 +938,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   border: 0;
   width: 100%;
   max-width: 400px;
-  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', "Open Sans", Helvetica, Arial, sans-serif;
   background-color: #eaedf2;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
@@ -1007,15 +1007,20 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Economica", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Economica", "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 24px;
   line-height: 1.2;
   color: #FFF;
-  background: url('../../images/jamo.png') no-repeat fixed;
+  background: url('../../images/jamo_lite.png') no-repeat fixed;
   background-position: left bottom;
   background-color: #2d2d2d;
+  background-size: 60%;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none; }
 
 /********************
 WORDPRESS BODY CLASSES
@@ -1067,12 +1072,12 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #fbe3e4;
+  color: #cfb500;
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #f5bbbd; }
+    color: #a18d00; }
   a:link, a:visited:link {
     /*
 		this highlights links on iPhones/iPads.
@@ -1121,11 +1126,12 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 .header {
-  background-color: #323944;
+  background-color: #222222;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 100; }
 
 #logo {
   margin-top: 0.15em;
@@ -1172,13 +1178,38 @@ and more scalable.
 			*/ }
     .nav li ul.sub-menu li a, .nav li ul.children li a {
       padding-left: 30px; }
+      .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.children li a:hover, .nav li ul.children li a:focus {
+        color: #cfb500; }
 
 /* end .nav */
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+#home-one, #home-three {
+  position: relative; }
+  #home-one img, #home-three img {
+    width: 100%;
+    vertical-align: top; }
+  #home-one:after, #home-three:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; }
+  #home-one:hover:after, #home-three:hover:after {
+    opacity: 1; }
+
 #content {
   margin-top: 8em; }
+  #content p {
+    font-family: "Droid Serif", Cambria, Times New Roman, Times, serif;
+    font-size: 16px;
+    line-height: 26px; }
 
 .hentry {
   border-radius: 3px;
@@ -1186,7 +1217,7 @@ POSTS & CONTENT STYLES
   .hentry header {
     padding: 1em;
     margin: 0.5em 0;
-    background-color: rgba(50, 57, 68, 0.9); }
+    background-color: rgba(34, 34, 34, 0.9); }
   .hentry footer {
     padding: 1.5em;
     border-top: 1px solid #f8f9fa; }
@@ -1214,8 +1245,8 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-  padding: 1.5em 1em 0;
-  background-color: rgba(50, 57, 68, 0.9);
+  padding: 1.5em 1em;
+  background-color: rgba(34, 34, 34, 0.94);
   /*
 			image alignment on a screen this size may be
 			a bit difficult. It's set to start aligning
@@ -1252,9 +1283,11 @@ POSTS & CONTENT STYLES
   .entry-content blockquote {
     margin: 0 0 1.5em 0.75em;
     padding: 0 0 0 0.75em;
-    border-left: 3px solid #2980b9;
-    font-style: italic;
+    border-left: 3px solid #cfb500;
     color: #9fa6b4; }
+    .entry-content blockquote p {
+      font-family: "Economica", "Open Sans", Helvetica, Arial, sans-serif;
+      font-size: 24px; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;
@@ -1268,7 +1301,7 @@ POSTS & CONTENT STYLES
     max-width: 100%;
     height: auto; }
   .entry-content pre {
-    background: #323944;
+    background: #222222;
     color: #f8f9fa;
     font-size: 0.9em;
     padding: 1.5em;
@@ -1481,6 +1514,9 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
+.sidebar {
+  background: rgba(34, 34, 34, 0.92); }
+
 .widget ul li {
   /* deep nesting */ }
 
@@ -1493,11 +1529,41 @@ SIDEBARS & ASIDES
   margin-bottom: 1.5em; }
 
 /*********************
+HERO STYLES
+*********************/
+#home-one img {
+  width: 100%; }
+
+#home-three {
+  margin: 0 auto; }
+  #home-three img {
+    width: 32%;
+    margin-right: 0.93%; }
+    #home-three img:last {
+      margin-right: 0; }
+
+/*********************
+FORM STYLES
+*********************/
+.ninja-forms-required-items {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #eaedf2;
+  font-style: italic; }
+
+.field-wrap {
+  width: 45%;
+  margin-right: 5%;
+  float: left; }
+  .field-wrap .label {
+    font-size: 20px; }
+
+/*********************
 FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  background-color: #323944;
+  background-color: #222222;
   color: #f8f9fa; }
 
 /*
@@ -1509,7 +1575,14 @@ FOOTER STYLES
 	override these styles for the desktop
 	view.
 	*/
+.footer-links {
+  float: right;
+  margin-top: 24px; }
+
 /* end .footer-links */
+.copyright {
+  float: left; }
+
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -1637,7 +1710,7 @@ NAVIGATION STYLES
     /* highlight current page */
     /* end current highlighters */ }
     .nav ul {
-      background: #323944;
+      background: #222222;
       margin-top: 0; }
     .nav li {
       display: inline;
@@ -1654,8 +1727,7 @@ NAVIGATION STYLES
 			has the possibility of being a mobile device.
 			*/ }
         .nav li a:hover, .nav li a:focus {
-          color: #fff;
-          text-decoration: underline; }
+          color: #cfb500; }
       .nav li ul.sub-menu, .nav li ul.children {
         margin-top: 0;
         border: 1px solid #ccc;
@@ -1676,6 +1748,8 @@ NAVIGATION STYLES
             display: block;
             width: 180px;
             border-bottom: 1px solid #ccc; }
+            .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.children li a:hover, .nav li ul.children li a:focus {
+              color: #cfb500; }
           .nav li ul.sub-menu li:last-child a, .nav li ul.children li:last-child a {
             border-bottom: 0; }
           .nav li ul.sub-menu li ul, .nav li ul.children li ul {
@@ -1684,6 +1758,8 @@ NAVIGATION STYLES
       .nav li:hover > ul {
         top: auto;
         visibility: visible; }
+    .nav li.current-menu-item a, .nav li.current_page_item a, .nav li.current_page_ancestor a {
+      color: #cfb500; }
 
   /* end .nav */
   .nav-menu-mobile {
@@ -1693,7 +1769,8 @@ NAVIGATION STYLES
 SIDEBARS & ASIDES
 *********************/
   .sidebar {
-    margin-top: 2.2em; }
+    margin: 0 0 1em 0;
+    padding: 1em; }
 
   .widgettitle {
     border-bottom: 2px solid #444;
@@ -1701,7 +1778,7 @@ SIDEBARS & ASIDES
 
   .widget {
     padding: 0 10px;
-    margin: 2.2em 0; }
+    margin: 1.2em 0; }
     .widget ul li {
       margin-bottom: 0.75em;
       /* deep nesting */ }
@@ -1820,7 +1897,7 @@ be seen on the Desktop.
 
 ******************************************************************/
   .wrap {
-    width: 1040px; }
+    width: 70%; }
  }
 
 /*********************

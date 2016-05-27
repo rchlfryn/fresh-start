@@ -48,9 +48,10 @@ I've edited it a bit, but it's a nice starting point.
 */
 
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 // font stacks
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+$sans-serif:        "Open Sans", Helvetica, Arial, sans-serif;
+$serif:             "Droid Serif", Cambria, Times New Roman, Times, serif;
 
 
 /*
@@ -59,6 +60,7 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 */
 $lato:              'Lato', $sans-serif;
 $main-font:					"Economica", $sans-serif;
+
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
