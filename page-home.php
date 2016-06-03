@@ -30,12 +30,13 @@
 						<main id="main" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 							<section class="entry-content cf">
 								<div id="home-one">
+									<button class="overlay-button">Sign up</button>
 									<img src="http://placehold.it/350x150">
 								</div>
 								<div id="home-three">
-									<img src="http://placehold.it/350x150">
-									<img src="http://placehold.it/350x150">
-									<img src="http://placehold.it/350x150">
+									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
+									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
+									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
 								</div>
 							</section>
 						</main>

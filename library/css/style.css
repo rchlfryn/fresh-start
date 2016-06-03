@@ -931,7 +931,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   padding: 0 12px;
   margin-bottom: 14px;
   font-size: 1em;
-  color: #FFF;
+  color: black;
   border-radius: 3px;
   vertical-align: middle;
   box-shadow: none;
@@ -1110,7 +1110,10 @@ h2, .h2 {
   margin-bottom: 0.375em; }
 
 h3, .h3 {
-  font-size: 1.125em; }
+  font-size: 1.525em;
+  color: #cfb500;
+  margin: 10px 0;
+  font-weight: 700; }
 
 h4, .h4 {
   font-size: 1.1em;
@@ -1185,25 +1188,6 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#home-one, #home-three {
-  position: relative; }
-  #home-one img, #home-three img {
-    width: 100%;
-    vertical-align: top; }
-  #home-one:after, #home-three:after {
-    content: '\A';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: all 0.3s;
-    -webkit-transition: all 0.3s; }
-  #home-one:hover:after, #home-three:hover:after {
-    opacity: 1; }
-
 #content {
   margin-top: 8em; }
   #content p {
@@ -1531,15 +1515,47 @@ SIDEBARS & ASIDES
 /*********************
 HERO STYLES
 *********************/
-#home-one img {
-  width: 100%; }
+#home-one, .three-img {
+  position: relative; }
+  #home-one img, .three-img img {
+    width: 100%;
+    vertical-align: top; }
+  #home-one:after, .three-img:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; }
+  #home-one:hover:after, .three-img:hover:after {
+    opacity: 1; }
+
+.overlay-button {
+  position: absolute;
+  width: 160px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 0;
+  height: 40px;
+  bottom: 0;
+  z-index: 10;
+  background: none;
+  color: white;
+  border: 1px solid white; }
 
 #home-three {
   margin: 0 auto; }
-  #home-three img {
+  #home-three .three-img {
     width: 32%;
-    margin-right: 0.93%; }
-    #home-three img:last {
+    float: left;
+    margin-right: 1%;
+    position: relative; }
+    #home-three .three-img:last {
       margin-right: 0; }
 
 /*********************
