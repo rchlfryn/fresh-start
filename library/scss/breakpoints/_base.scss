@@ -17,12 +17,19 @@ GENERAL STYLES
 
 body {
 	font-family: $main-font;
-	font-size: 100%;
-	line-height: 1.5;
+	font-size: 24px;
+	line-height: 1.2;
 	color: $text-color;
-	background-color: $gray;
+	background: url('../../images/jamo_lite.png') no-repeat fixed;
+	background-position: left bottom;
+	background-color: rgba(45, 45, 45, 1);
+	background-size: 60%;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
+  word-wrap: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+   hyphens: none;
 }
 
 /********************
@@ -122,7 +129,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;
+	font-size: 2.2em;
 	line-height: 1.333em;
 }
 
@@ -133,7 +140,10 @@ h2, .h2 {
 }
 
 h3, .h3 {
-	font-size: 1.125em;
+	font-size: 1.525em;
+	color: $yellow;
+	margin: 10px 0;
+	font-weight: 700;
 }
 
 h4, .h4 {
@@ -154,13 +164,23 @@ HEADER STYLES
 
 .header {
 	background-color: $black;
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
 }
 
 	#logo {
-		margin: 0.75em 0;
+		margin-top: 0.15em;
+		text-align: center;
 
 		a {
 			color: $white;
+		}
+		
+		img{
+			max-width: 100px;
 		}
 	}
 
@@ -186,7 +206,7 @@ and more scalable.
 			display: block;
 			color: $white;
 			text-decoration: none;
-			padding: 0.75em;
+			padding: 0 0.75em 0.75em;
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -219,7 +239,9 @@ and more scalable.
 					padding-left: 30px;
 
 					&:hover,
-					&:focus {}
+					&:focus {
+						color: $yellow;
+					}
 
 					&:link {}
 
@@ -250,20 +272,24 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-
 #content {
-	margin-top: 1.5em;
+	margin-top: 8em;
+	  p {
+	  font-family: $serif;
+	  font-size: 16px;
+	  line-height: 26px;
+  }
 }
 
 		.hentry {
-			background-color: $white;
+// 			background-color: rgba(#323944, .8);
 			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
 			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
+				padding: 1em;
+				margin: .5em 0;
+				background-color: rgba($black, .9);
 			}
 
 			footer {
@@ -312,7 +338,8 @@ POSTS & CONTENT STYLES
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			padding: 1.5em 1em;
+			background-color: rgba($black, .94);
 
 			p {
 				margin: 0 0 1.5em;
@@ -383,9 +410,12 @@ POSTS & CONTENT STYLES
 			blockquote {
 				margin: 0 0 1.5em 0.75em;
 				padding: 0 0 0 0.75em;
-				border-left: 3px solid $blue;
-				font-style: italic;
+				border-left: 3px solid $yellow;
 				color: $meta-gray;
+				p{
+					font-family: $main-font;
+					font-size: 24px;
+				}
 
 				&:before {}
 
@@ -822,7 +852,9 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
+.sidebar {
+	background: rgba($black, .92);
+}
 
 	.widgettitle {}
 
@@ -855,7 +887,80 @@ SIDEBARS & ASIDES
 		border-radius: 2px;
 		margin-bottom: 1.5em;
 	}
+/*********************
+HERO STYLES
+*********************/
+#home-one,
+.three-img {
+	position: relative;
 
+	img {
+    width: 100%;
+    vertical-align: top;
+	}
+	&:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+	}
+	&:hover:after {
+    opacity: 1;
+	}
+}
+
+.overlay-button {
+  position: absolute;
+  width: 160px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 0;
+  height: 40px;
+  bottom: 0;
+  z-index: 10;
+  background: none;
+  color: white;
+  border: 1px solid white;
+}
+
+#home-three {
+	margin: 0 auto;
+
+	.three-img {
+		width: 32%;
+		float: left;
+		margin-right: 1%;
+		position: relative;
+		
+		&:last {
+			margin-right: 0;
+		}
+	}
+}
+
+/*********************
+FORM STYLES
+*********************/
+.ninja-forms-required-items {
+	font-size: 18px;
+	margin-bottom: 20px;
+	color: $gray;
+	font-style: italic;
+}
+.field-wrap {
+	width: 45%;
+	margin-right: 5%;
+	float: left;
+	
+	.label {
+		font-size: 20px;
+	}
+}
 /*********************
 FOOTER STYLES
 *********************/
@@ -876,6 +981,8 @@ FOOTER STYLES
 	view.
 	*/
 	.footer-links {
+		float: right;
+		margin-top: 24px;
 
 		ul {
 
@@ -886,4 +993,6 @@ FOOTER STYLES
 	} /* end .footer-links */
 
 
-	.copyright {}
+	.copyright {
+		float: left;
+	}

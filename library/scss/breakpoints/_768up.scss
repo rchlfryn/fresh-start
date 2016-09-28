@@ -42,24 +42,26 @@ NAVIGATION STYLES
 
 .nav {
 	border: 0;
+	text-align: center;
 	ul {
 		background:$black;
 		margin-top:0;
 	}
+
 	li {
-		float: left;
+		display: inline;
 		position: relative;
 
 		a {
 			border-bottom: 0;
+			display: inline-block;
 
 			/*
 			you can use hover styles here even though this size
 			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
-				color: $white;
-				text-decoration: underline;
+				color: $yellow;
 			}
 		}
 
@@ -88,7 +90,9 @@ NAVIGATION STYLES
 					border-bottom: 1px solid #ccc;
 
 					&:hover,
-					&:focus {}
+					&:focus {
+						color: $yellow;
+					}
 
 					&:link {}
 				}
@@ -133,7 +137,7 @@ NAVIGATION STYLES
 	li.current-menu-item,
 	li.current_page_item,
 	li.current_page_ancestor {
-		a {}
+		a { color:$yellow;}
 	}  /* end current highlighters */
 
 } /* end .nav */
@@ -145,7 +149,8 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	margin-top: 2.2em;
+	margin: 0 0 1em 0;
+	padding: 1em;
 }
 
 	.widgettitle {
@@ -155,7 +160,7 @@ SIDEBARS & ASIDES
 
 	.widget {
 		padding: 0 10px;
-		margin: 2.2em 0;
+		margin: 1.2em 0;
 
 		ul {
 			li {

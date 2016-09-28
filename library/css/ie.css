@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 /******************************************************************
 Site Name:
 Author:
@@ -264,14 +265,15 @@ NAVIGATION STYLES
 *********************/
 .nav {
   border: 0;
+  text-align: center;
   /* end .menu ul li */
   /* highlight current page */
   /* end current highlighters */ }
   .nav ul {
-    background: #323944;
+    background: #222222;
     margin-top: 0; }
   .nav li {
-    float: left;
+    display: inline;
     position: relative;
     /*
 		plan your menus and drop-downs wisely.
@@ -279,13 +281,13 @@ NAVIGATION STYLES
     /* showing sub-menus */ }
     .nav li a {
       border-bottom: 0;
+      display: inline-block;
       /*
 			you can use hover styles here even though this size
 			has the possibility of being a mobile device.
 			*/ }
       .nav li a:hover, .nav li a:focus {
-        color: #fff;
-        text-decoration: underline; }
+        color: #cfb500; }
     .nav li ul.sub-menu, .nav li ul.children {
       margin-top: 0;
       border: 1px solid #ccc;
@@ -306,6 +308,8 @@ NAVIGATION STYLES
           display: block;
           width: 180px;
           border-bottom: 1px solid #ccc; }
+          .nav li ul.sub-menu li a:hover, .nav li ul.sub-menu li a:focus, .nav li ul.children li a:hover, .nav li ul.children li a:focus {
+            color: #cfb500; }
         .nav li ul.sub-menu li:last-child a, .nav li ul.children li:last-child a {
           border-bottom: 0; }
         .nav li ul.sub-menu li ul, .nav li ul.children li ul {
@@ -314,6 +318,8 @@ NAVIGATION STYLES
     .nav li:hover > ul {
       top: auto;
       visibility: visible; }
+  .nav li.current-menu-item a, .nav li.current_page_item a, .nav li.current_page_ancestor a {
+    color: #cfb500; }
 
 /* end .nav */
 .nav-menu-mobile {
@@ -323,7 +329,8 @@ NAVIGATION STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  margin-top: 2.2em; }
+  margin: 0 0 1em 0;
+  padding: 1em; }
 
 .widgettitle {
   border-bottom: 2px solid #444;
@@ -331,7 +338,7 @@ SIDEBARS & ASIDES
 
 .widget {
   padding: 0 10px;
-  margin: 2.2em 0; }
+  margin: 1.2em 0; }
   .widget ul li {
     margin-bottom: 0.75em;
     /* deep nesting */ }
@@ -377,7 +384,7 @@ be seen on the Desktop.
 
 ******************************************************************/
 .wrap {
-  width: 1040px; }
+  width: 70%; }
 
 /*
 you can call the larger styles if you want, but there's really no need
