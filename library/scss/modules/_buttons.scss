@@ -60,15 +60,15 @@ and it will create a button dependant on those variables.
 */
 .blue-btn {
   @extend %btn; // here we load the btn defaults
-  background-color: $yellow;
+  background-color: $red;
 
   &:hover,
   &:focus {
-    background-color: darken($yellow, 4%);
+    background-color: darken($red, 4%);
   } // end hover
 
   &:active {
-    background-color: darken($yellow, 5%);
+    background-color: darken($red, 5%);
   } // end active
 
 } // end blue button

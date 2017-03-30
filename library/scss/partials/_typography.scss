@@ -49,9 +49,11 @@ I've edited it a bit, but it's a nice starting point.
 
 @import url(https://fonts.googleapis.com/css?family=Economica:400,700,700italic,400italic);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(https://fonts.googleapis.com/css?family=Teko|Fira+Sans+Condensed:400);
 // font stacks
 $sans-serif:        "Open Sans", Helvetica, Arial, sans-serif;
 $serif:             "Droid Serif", Cambria, Times New Roman, Times, serif;
+$fira: 'Fira Sans Condensed', sans-serif;
 
 
 /*
@@ -59,20 +61,19 @@ $serif:             "Droid Serif", Cambria, Times New Roman, Times, serif;
  don't forget to remove it for your site.
 */
 $lato:              'Lato', $sans-serif;
-$main-font:					"Economica", $sans-serif;
-
+$main-font:					'Teko', $fira,"Economica", $sans-serif;
 /*
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
 p {
-  -ms-word-wrap: break-word;
-  word-break: break-word; //non-standart css for webkit
-  word-wrap: break-word;
+  -ms-word-wrap: normal;
+  word-break: normal; //non-standart css for webkit
+  word-wrap: normal;
   // cleaning up the ragged lines and breaks
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-          hyphens: auto;
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+          hyphens: none;
   // sets a minimum number of characters before and after the break
   -webkit-hyphenate-before: 2;
    -webkit-hyphenate-after: 3;

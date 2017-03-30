@@ -11,89 +11,157 @@
  *
  * For more info: http://codex.wordpress.org/Page_Templates
 */
-?>
+?><?php get_header(); ?>
 
-<?php get_header(); ?>
+<html>
+<head>
+    <title></title>
+</head>
 
-			<div id="content">
+<body>
+    <div id="staff">
+        <div class="inner-content wrap cf">
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<div id="inner-content" class="wrap cf">
+            <header class="article-header">
+                <h1 class="page-title"><?php the_title(); ?></h1>
+            </header>
 
-						<main id="main" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+            <section class="entry-content cf" itemprop="articleBody"><?php
+                 // the content (pretty self explanatory huh)
+                the_content();?><?php endwhile; ?><?php endif; ?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+                <?php
+                  $first_query = new WP_Query(
+                  array(
+                  'post_type' => 'custom_type',
+                  'posts_per_page' => -1,
+									'meta_key' => 'order',
+									'orderby'	=> 'meta_value_num',
+                  'order' => 'ASC',
+                  'tax_query' => array(
+                        array(
+                        'taxonomy' => 'custom_cat',
+                        'field' => 'slug',
+                        'terms' => 'staff'
+                        )
+                  ))
+                  );
+                  $second_query = new WP_Query(
+                  array(
+                  'post_type' => 'custom_type',
+                  'posts_per_page' => -1,
+                  'orderby'=>'title',
+                  'order' => 'ASC',
+                  'tax_query' => array(
+                      array(
+                      'taxonomy' => 'custom_cat',
+                      'field' => 'slug',
+                      'terms' => 'affiliates'
+                      )
+                  ))
+                  );
+                  $third_query = new WP_Query(
+                  array(
+                  'post_type' => 'custom_type',
+                  'posts_per_page' => -1,
+                  'orderby'=>'title',
+                  'order' => 'ASC',
+                  'tax_query' => array(
+                      array(
+                      'taxonomy' => 'custom_cat',
+                      'field' => 'slug',
+                      'terms' => 'alumni'
+                      )
+                  ))
+                  );
+                  $fourth_query = new WP_Query(
+                  array(
+                  'post_type' => 'custom_type',
+                  'posts_per_page' => -1,
+                  'orderby'=>'title',
+                  'order' => 'ASC',
+                  'tax_query' => array(
+                      array(
+                      'taxonomy' => 'custom_cat',
+                      'field' => 'slug',
+                      'terms' => 'college'
+                      )
+                  ))
+                  );
+                                        
+                  if ( have_posts() ) :               
+                   ?>
+                   
+            </section>
+             <section class="entry-content cf">
 
-<!--
-								<header class="article-header">
+                <h3>Coaches</h3><?php while($first_query->have_posts()) : $first_query->the_post(); ?>
 
-									<h1 class="page-title"><?php the_title(); ?></h1>
- 
-								</header>
+                <article class="staff-grid">
+                    <div class="staff-img">
+                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?><?php the_post_thumbnail('medium'); ?><?php endif; ?>
+                    </div>
+
+                    <h4 class="staff-name"><?php the_title(); ?></h4>
+
+                    <div class="staff-bio">
+                        <?php the_content(); ?>
+                    </div>
+                </article><?php endwhile; ?><!-- end of the loop -->
+                <?php wp_reset_postdata();?>
+
+                <div class="clearfix"></div>
+             </section>
+              <section class="entry-content cf">
+
+                <h3>Affiliates</h3>
+                <div class="home-affiliates">
+                <?php while($second_query->have_posts()) : $second_query->the_post(); ?>
+								
+                <article class="four-grid">
+                    <div class="aff-logo">
+                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?><a target="_blank" href="<?php the_field('website');?>"><?php the_post_thumbnail(); ?></a><?php endif; ?>
+
+                        <div class="content">
+                            <h4><a target="_blank" href="<?php the_field('website');?>"><?php the_title(); ?></a></h4>
+                        </div>
+                    </div>
+                </article><?php endwhile; ?><!-- end of the loop -->
+                <?php wp_reset_postdata();?>
+								</div>
+                <div class="clearfix"></div>
+              </section>
+                <!--
+                <h3>Alumni</h3><?php while($third_query->have_posts()) : $third_query->the_post(); ?>
+
+                <article class="grid">
+                    <div class="text">
+                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?> <?php the_post_thumbnail(); ?><?php endif; ?>
+
+                        <div class="content">
+                            <h3><a href="<?php the_permalink(); ?>"><?php the_title();?> </a></h3>
+
+                            <p><?php the_field('title');?></p>
+                        </div>
+                    </div>
+                </article><?php endwhile; ?>
+                <br>
 -->
 
-								<section class="entry-content cf d-1of2" itemprop="articleBody">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
-
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
-										 *
-										 * Also, breaking content up into multiple pages is a horrible experience,
-										 * so don't do it. While there are SOME edge cases where this is useful, it's
-										 * mostly used for people to get more ad views. It's up to you but if you want
-										 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-										 *
-										 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-										 *
-										*/
-
-									?>
-									
-
-								    
-
-								</section>
-								<section class="entry-content cf d-1of2">
-								<?php the_field('second_column'); ?>
-								</section>
-								
-								<div class="clearfix"></div>
-								
-								<section class="entry-content cf d-all" >
-								<?php the_field('about'); ?>
-								</section>
-
-
-								<?php comments_template(); ?>
-
-							</article>
-
-							<?php endwhile; else : ?>
-
-									<article id="post-not-found" class="hentry cf">
-											<header class="article-header">
-												<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-										</header>
-											<section class="entry-content">
-												<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-						</main>
-
-
-				</div>
-
-			</div>
-
-
-<?php get_footer(); ?>
+                
+							<section class="entry-content cf">
+                <h3>Colleges</h3><?php while($fourth_query->have_posts()) : $fourth_query->the_post(); ?>
+                    <div class="text">
+                        <div class="content">
+                            <p><?php the_content(); ?></p>
+                        </div>
+                    </div><?php endwhile; ?><!-- end of the loop -->
+                <?php wp_reset_postdata();?>
+                <?php endif; wp_reset_postdata();?>
+            </section>
+        </div>
+    </div><?php get_footer(); ?>
+</body>
+</html>

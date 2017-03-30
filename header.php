@@ -21,6 +21,7 @@
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
 		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+		<script src="https://use.fontawesome.com/9e2d123f4d.js"></script>
 		<!--[if IE]>
 			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 		<![endif]-->
