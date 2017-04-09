@@ -47,35 +47,7 @@
                       )
                   ))
                   );
-                  $third_query = new WP_Query(
-                  array(
-                  'post_type' => 'custom_type',
-                  'posts_per_page' => -1,
-                  'orderby'=>'title',
-                  'order' => 'ASC',
-                  'tax_query' => array(
-                      array(
-                      'taxonomy' => 'custom_cat',
-                      'field' => 'slug',
-                      'terms' => 'alumni'
-                      )
-                  ))
-                  );
-                  $fourth_query = new WP_Query(
-                  array(
-                  'post_type' => 'custom_type',
-                  'posts_per_page' => -1,
-                  'orderby'=>'title',
-                  'order' => 'ASC',
-                  'tax_query' => array(
-                      array(
-                      'taxonomy' => 'custom_cat',
-                      'field' => 'slug',
-                      'terms' => 'college'
-                      )
-                  ))
-                  );
-                                        
+              
                   if ( have_posts() ) :               
                    ?>
                    
@@ -97,37 +69,11 @@
                     </div>
                 </article><?php endwhile; ?><!-- end of the loop -->
                 <?php wp_reset_postdata();?>
+                <?php endif; wp_reset_postdata();?>
 								</div>
                 <div class="clearfix"></div>
               </section>
-<!--               <section class="entry-content cf">
-                <h3>Alumni</h3><?php while($third_query->have_posts()) : $third_query->the_post(); ?>
 
-                <article class="grid">
-                    <div class="text">
-                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?> <?php the_post_thumbnail(); ?><?php endif; ?>
-
-                        <div class="content">
-                            <h3><a href="<?php the_permalink(); ?>"><?php the_title();?> </a></h3>
-
-                            <p><?php the_field('title');?></p>
-                        </div>
-                    </div>
-                </article><?php endwhile; ?>
-                </section> -->
- 
-<!--
-							<section class="entry-content cf">
-                <h3>Colleges</h3><?php while($fourth_query->have_posts()) : $fourth_query->the_post(); ?>
-                    <div class="text">
-                        <div class="content">
-                            <p><?php the_content(); ?></p>
-                        </div>
-                    </div><?php endwhile; ?>
-                <?php wp_reset_postdata();?>
-                <?php endif; wp_reset_postdata();?>
-            </section>
--->
         </div>
     </div><?php get_footer(); ?>
 </body>

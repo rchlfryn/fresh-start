@@ -22,23 +22,21 @@ $alert-red:         #fbe3e4;
 $alert-green:       #e6efc2;
 $alert-blue:        #d5edf8;
 
-$black:             #222222;
+$black:             #323640;
 $white:             #fff;
 
-$light-gray:        #f8f9fa;
+$grey-bg:        		#E4E4E4;
 $gray:              #eaedf2;
 $text-color:        #FFF;
-$meta-gray:         #9fa6b4;
 
-$tan:               #eceee5;
+$red: 							#C94243;
+$blue:							#005091;
+$grey-light:        #9fa6b4;
+$grey-dark:					#323640;
+$grey-blue:					#5F6776;
+$light-blue: 				#5f83CC;
 
-$green:             #7dd667;
-$yellow:						#cfb500;
-
-$bones-pink:        #f01d4f;
-$blue:              #2980b9;
-
-$link-color:        $yellow;
+$link-color:        $red;
 $link-hover:        darken($link-color, 9%);
 
 $border-color:      #ccc;

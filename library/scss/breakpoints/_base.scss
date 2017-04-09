@@ -20,58 +20,22 @@ body {
 	font-size: 24px;
 	line-height: 1.2;
 	color: $text-color;
-	background: url('../../images/jamo_lite.png') no-repeat fixed;
-	background-position: left bottom;
-	background-color: rgba(45, 45, 45, 1);
-	background-size: 60%;
+	background: url('http://kronserkeeperacademy.com/wp-content/themes/fresh-start/images/KKA-Logo-bg.png') no-repeat fixed;
+	background-position: 98% 98%;
+	background-color: $grey-bg;
+	background-size: 54%;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
   word-wrap: normal;
   -webkit-hyphens: none;
   -moz-hyphens: none;
    hyphens: none;
+   p {
+   	font-family: $serif;
+   	font-size: 16px;
+   	line-height: 26px;
+   }
 }
-
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-
-.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
-.home {}                          /* home page */
-.blog {}                          /* blog template page */
-.archive {}                       /* archive page */
-.date {}                          /* date archive page */
-	.date-paged-1 {}                /* replace the number to the corresponding page number */
-.search {}                        /* search page */
-	.search-results {}              /* search result page */
-	.search-no-results {}           /* no results search page */
-	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                      /* 404 page */
-.single {}                        /* single post page */
-	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
-	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
-.attachment {}                    /* attatchment page */
-	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
-	.attachment-mime-type {}        /* style mime type pages */
-.author {}                        /* author page */
-	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
-	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
-.category {}                      /* category page */
-	.category-1 {}                  /* individual category page (i.e. body.category-6) */
-	.category-paged-1 {}            /* replace the number to the corresponding page number */
-.tag {}                           /* tag page */
-	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
-	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
-.page-template {}                 /* custom page template page */
-	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
-	.page-paged-1 {}                /* replace the number to the corresponding page number */
-	.page-parent {}                 /* parent page template */
-	.page-child {}                  /* child page template */
-	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
-.logged-in {}                     /* if user is logged in */
-.paged {}                         /* paged items like search results or archives */
-	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
 
 /*********************
 LAYOUT & GRID STYLES
@@ -141,14 +105,13 @@ h2, .h2 {
 
 h3, .h3 {
 	font-size: 1.525em;
-	color: $yellow;
+	color: $red;
 	margin: 10px 0;
-	font-weight: 700;
 }
 
 h4, .h4 {
-	font-size: 1.1em;
-	font-weight: 700;
+	font-size: 1.3em;
+	margin: 4px 0;
 }
 
 h5, .h5 {
@@ -172,7 +135,7 @@ HEADER STYLES
 }
 
 	#logo {
-		margin-top: 0.15em;
+		margin: 0.15em auto 0;
 		text-align: center;
 
 		a {
@@ -180,9 +143,16 @@ HEADER STYLES
 		}
 		
 		img{
-			max-width: 100px;
+			max-width: 70px;
 		}
 	}
+	
+.article-header {
+	padding: 1em 2em;
+	margin: .5em 0;
+	background-color: $grey-blue;
+	text-align: center;
+}
 
 /*********************
 NAVIGATION STYLES
@@ -195,18 +165,33 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
-
+#menu-main-nav li{
+	&:last-child{
+		border: 1px solid $red;
+		border-radius: 3px;
+	}
+}
+/*
+.tinynav { display: block; margin: 160px auto 0 auto; width:100%; }
+#menu-main-nav { display: none }
+*/
 .nav {
 	border-bottom: 0;
 	margin: 0;
+	text-align: center;	
 
 	li {
+		padding: 4px;
+		cursor: pointer;
+
 
 		a {
 			display: block;
 			color: $white;
 			text-decoration: none;
 			padding: 0 0.75em 0.75em;
+			cursor: pointer;
+
 
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -234,13 +219,13 @@ and more scalable.
 		ul.children {
 
 			li {
-
+				padding-left: 30px;
+				padding-right: 30px;
 				a {
 					padding-left: 30px;
 
 					&:hover,
 					&:focus {
-						color: $yellow;
 					}
 
 					&:link {}
@@ -272,13 +257,71 @@ and more scalable.
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content {
-	margin-top: 8em;
-	  p {
-	  font-family: $serif;
-	  font-size: 16px;
-	  line-height: 26px;
-  }
+#main {
+	padding-bottom: 30px;
+}
+.training,
+.staff-bio {
+	b,
+	strong{
+		font-family: $main-font;
+		font-size: 24px;
+	}
+
+}
+
+.four-grid {
+	width: 49%;
+	float: left;
+	margin-right: 1%;
+	text-align: center;
+	&:nth-of-type(2n+1){
+		clear: left;
+	}
+	.aff-logo img {
+		cursor: pointer;
+		width: 92%;
+	}
+  a{
+		color: white;
+		text-decoration: none;
+	}
+}
+
+.two-grid {
+	width: 49%;
+	float: left;
+	margin-right: 1%;
+	text-align: center;
+	&:nth-of-type(4n){
+		clear: left;
+	}
+  a{
+		color: white;
+	}
+}
+
+#staff {
+	section {
+		padding-bottom: 20px;
+	}
+}
+.staff-img {
+	float: left;
+	margin-right: 10px;
+	max-width: 110px;
+	padding-top: 10px;
+	img {
+		margin: 0;
+	}
+}
+
+.inner-content {
+	margin-top: 4em;
+}
+
+.fc-unthemed .fc-today {
+	background: rgba(201, 66, 67, 0.2);
 }
 
 		.hentry {
@@ -286,15 +329,9 @@ POSTS & CONTENT STYLES
 			border-radius: 3px;
 			margin-bottom: 1.5em;
 
-			header {
-				padding: 1em;
-				margin: .5em 0;
-				background-color: rgba($black, .9);
-			}
-
 			footer {
 				padding: 1.5em;
-				border-top: 1px solid $light-gray;
+				border-top: 1px solid $grey-bg;
 
 				p {
 					margin: 0;
@@ -309,27 +346,9 @@ POSTS & CONTENT STYLES
 			margin: 0;
 		}
 
-		.single-title {}
-
-		.page-title {}
-
-		.entry-title {}
-
-		.archive-title {}
-
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
-
 		/* post meta */
 		.byline {
-			color: $meta-gray;
+			color: $grey-light;
 			font-style: italic;
 			margin: 0;
 
@@ -339,12 +358,8 @@ POSTS & CONTENT STYLES
 		/* entry content */
 		.entry-content {
 			padding: 1.5em 1em;
-			background-color: rgba($black, .94);
-
-			p {
-				margin: 0 0 1.5em;
-			}
-
+			background-color: rgba(50, 54, 64, .96);
+			margin-bottom: 30px;
 
 			ul, ol, table, dl {}
 
@@ -355,8 +370,11 @@ POSTS & CONTENT STYLES
 			}
 
 			ul {
+				list-style-type: square;
 
-				li {}
+				li {
+					margin-left: 30px;
+				}
 
 			}
 
@@ -366,7 +384,7 @@ POSTS & CONTENT STYLES
 
 			}
 
-			table {
+			.content-table{
 				width: 100%;
 				border: 1px solid $gray;
 				margin-bottom: 1.5em;
@@ -374,47 +392,41 @@ POSTS & CONTENT STYLES
 				caption {
 					margin: 0 0 7px;
 					font-size: 0.75em;
-					color: $meta-gray;
+					color: $grey-light;
 					text-transform: uppercase;
 					letter-spacing: 1px;
 				}
-			}
 
-			tr {
-				border-bottom: 1px solid $gray;
-
-				&:nth-child(even) {
-					background-color: $light-gray;
+				tr {
+					border-bottom: 1px solid $gray;
 				}
-			}
 
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
+				td {
+					padding: 7px;
+					border-right: 1px solid $gray;
 
-				&:last-child {
-					border-right: 0;
+					&:last-child {
+						border-right: 0;
+					}
 				}
-			}
 
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
+				th {
+					background-color: $grey-bg;
+					border-bottom: 1px solid $gray;
+					border-right: 1px solid $gray;
 				}
 			}
 
 			blockquote {
-				margin: 0 0 1.5em 0.75em;
+				margin: 1.5em 2em;
 				padding: 0 0 0 0.75em;
-				border-left: 3px solid $yellow;
-				color: $meta-gray;
+				border-left: 3px solid $red;
+				color: $grey-light;
 				p{
 					font-family: $main-font;
-					font-size: 24px;
+					font-size: 46px;
+					line-height: 1.2;
+					margin: 0;
 				}
 
 				&:before {}
@@ -433,7 +445,7 @@ POSTS & CONTENT STYLES
 			}
 
 			img {
-				margin: 0 0 1.5em 0;
+				margin: 0;
 				max-width: 100%;
 				height: auto;
 			}
@@ -459,7 +471,7 @@ POSTS & CONTENT STYLES
 
 			pre {
 				background: $black;
-				color: $light-gray;
+				color: $grey-bg;
 				font-size: 0.9em;
 				padding: 1.5em;
 				margin: 0 0 1.5em;
@@ -467,7 +479,6 @@ POSTS & CONTENT STYLES
 			}
 
 		} /* end .entry-content */
-
 		.wp-caption {
 			max-width: 100%;
 			background: #eee;
@@ -592,261 +603,6 @@ PAGE NAVI STYLES
 
 	} /* end .wp-prev-next */
 
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-
-/* h3 comment title */
-#comments-title {
-	padding: 0.75em;
-	margin: 0;
-	border-top: 1px solid $light-gray;
-
-	/* number of comments span */
-	span {}
-
-}
-
-.comment-nav {
-
-	ul {
-
-		li {}
-
-	}
-}
-
-
-.commentlist {
-	margin: 0;
-	list-style-type: none;
-}
-
-.comment {
-	position: relative;
-	clear: both;
-	overflow: hidden;
-	padding: 1.5em;
-	border-bottom: 1px solid $light-gray;
-
-	.comment-author {
-		padding: 7px;
-		border: 0;
-	}
-
-	/* vcard */
-	.vcard {
-		margin-left: 50px;
-
-		cite.fn {
-			font-weight: 700;
-			font-style: normal;
-
-			a.url {}
-
-		}
-
-		time {
-			display: block;
-			font-size: 0.9em;
-			font-style: italic;
-
-			a {
-				color: $meta-gray;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
-		.photo {}
-
-		.avatar {
-			position: absolute;
-			left: 16px;
-			border-radius: 50%;
-		}
-
-	} /* end .commentlist .vcard */
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	.children {
-		margin: 0;
-
-		li {}
-
-			/* variations */
-			.comment {}
-			.alt {}
-			.odd {}
-			.even {}
-			.depth-1 {}           /* change number for different depth */
-			.byuser {}
-			.bypostauthor {}
-			.comment-author-admin {}
-
-	} /* end children */
-
-
-	&[class*=depth-] {
-		margin-top: 1.1em;
-	}
-
-	&.depth-1 {
-		margin-left: 0;
-		margin-top: 0;
-	}
-
-	&:not(.depth-1) {
-		margin-top: 0;
-		margin-left: 7px;
-		padding: 7px;
-	}
-
-	&.depth-2 {}
-	&.depth-3 {}
-	&.depth-4 {}
-	&.depth-5 {}
-
-	/* general comment classes */
-	&.alt {}
-	&.odd {
-		background-color: $white;
-	}
-	&.even {
-		background: $light-gray;
-	}
-	&.parent {}
-	&.comment {}
-	&.children {}
-	&.pingback {}
-	&.bypostauthor {}
-	&.comment-author {}
-	&.comment-author-admin {}
-	&.thread-alt {}
-	&.thread-odd {}
-	&.thread-even {}
-}
-
-
-
-
-	/* comment meta */
-	.comment-meta {
-
-		a {}
-
-	}
-
-	.commentmetadata {
-
-		a {}
-
-	}
-
-	/* comment content */
-	.comment_content {
-
-		p {
-			margin: 0.7335em 0 1.5em;
-			font-size: 1em;
-			line-height: 1.5em;
-		}
-
-	} /* end .commentlist .comment_content */
-
-	/* comment reply link */
-	.comment-reply-link {
-		@extend .blue-btn;
-		font-size: 0.9em;
-		float: right;
-
-		&:hover,
-		&:focus {
-		}
-
-	} /* end .commentlist .comment-reply-link */
-
-	/* edit comment link */
-	.comment-edit-link {
-		font-style: italic;
-		margin: 0 7px;
-		text-decoration: none;
-		font-size: 0.9em;
-	}
-
-
-
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-
-.comment-respond {
-	@extend .cf;
-	padding: 1.5em;
-	border-top: 1px solid $light-gray;
-}
-
-	#reply-title {
-		margin: 0;
-	}
-
-	.logged-in-as {
-		color: $meta-gray;
-		font-style: italic;
-		margin: 0;
-
-		a {
-			color: $text-color;
-		}
-	}
-
-	.comment-form-comment {
-		margin: 1.5em 0 0.75em;
-	}
-
-	.form-allowed-tags {
-		padding: 1.5em;
-		background-color: $light-gray;
-		font-size: 0.9em;
-	}
-
-	/* comment submit button */
-	#submit {
-		@extend .blue-btn;
-		float: right;
-		font-size: 1em;
-	}
-
-	/* comment form title */
-	#comment-form-title {
-		margin: 0 0 1.1em;
-	}
-
-	/* cancel comment reply link */
-	#cancel-comment-reply {
-		a {}
-	}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
-	/* allowed tags */
-	#allowed_tags {
-		margin: 1.5em 10px 0.7335em 0;
-	}
-
-	/* no comments */
-	.nocomments {
-		margin: 0 20px 1.1em;
-	}
 
 /*********************
 SIDEBARS & ASIDES
@@ -890,10 +646,13 @@ SIDEBARS & ASIDES
 /*********************
 HERO STYLES
 *********************/
-#home-one,
-.three-img {
-	position: relative;
-
+#home {
+	padding-bottom: 30px;
+}
+#home-one{
+	padding-bottom: 20px;
+}
+.two-img {
 	img {
     width: 100%;
     vertical-align: top;
@@ -913,6 +672,24 @@ HERO STYLES
 	}
 }
 
+.btn {
+  color: white !important;
+  font-size: 20px;
+  background: $red;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+	color: white !important;
+  background: $red;
+  background-image: -webkit-linear-gradient(top, $red, #9e3638);
+  background-image: -moz-linear-gradient(top, $red, #9e3638);
+  background-image: -ms-linear-gradient(top, $red, #9e3638);
+  background-image: -o-linear-gradient(top, $red, #9e3638);
+  background-image: linear-gradient(to bottom, $red, #9e3638);
+  text-decoration: none;
+}
 .overlay-button {
   position: absolute;
   width: 160px;
@@ -927,15 +704,25 @@ HERO STYLES
   color: white;
   border: 1px solid white;
 }
-
-#home-three {
+.facebook {
+	float: right;
+	width: 100%;
+}
+#home-two {
 	margin: 0 auto;
+	width: 100%;
+	display: inline-block;
+	
 
-	.three-img {
-		width: 32%;
-		float: left;
+	.two-img {
+// 		width: 49%;
+// 		float: left;
 		margin-right: 1%;
+		margin-bottom: 10px;
 		position: relative;
+		height: 240px;
+		background-size: cover;
+		background-position: center center !important;
 		
 		&:last {
 			margin-right: 0;
@@ -943,6 +730,9 @@ HERO STYLES
 	}
 }
 
+.simcal-event-bubble .simcal-event-details p {
+	color: $grey-blue;
+}
 /*********************
 FORM STYLES
 *********************/
@@ -953,13 +743,13 @@ FORM STYLES
 	font-style: italic;
 }
 .field-wrap {
-	width: 45%;
-	margin-right: 5%;
-	float: left;
 	
 	.label {
 		font-size: 20px;
 	}
+}
+.payment-form-wrap{
+	float: none;
 }
 /*********************
 FOOTER STYLES
@@ -968,7 +758,7 @@ FOOTER STYLES
 .footer {
 	clear: both;
 	background-color: $black;
-	color: $light-gray;
+	color: $grey-bg;
 }
 
 	/*
@@ -995,4 +785,5 @@ FOOTER STYLES
 
 	.copyright {
 		float: left;
+		padding-top: 12px;
 	}

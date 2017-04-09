@@ -15,35 +15,28 @@
 
 <?php get_header(); ?>
 
-	<?php 
-		// vars
-		$main_image = get_field('main_image');
-		$img1 = get_field('bottom_right');
-		$img2 = get_field('bottom_center');
-		$img3 = get_field('bottom_left');
-	?>
+				<div class="inner-content wrap cf">
 
-			<div id="content" class="home">
-
-				<div id="inner-content" class="wrap cf">
-
-						<main id="main" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="home" class="m-all t-all d-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 							<section class="entry-content cf">
-								<div id="home-one">
-									<button class="overlay-button">Sign up</button>
-									<img src="http://placehold.it/350x150">
+							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+								<div class="main-content">
+									<?php
+										// the content (pretty self explanatory huh)
+										the_content();
+									?>
 								</div>
-								<div id="home-three">
-									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
-									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
-									<div class="three-img"><button class="overlay-button">Sign up</button><img src="http://placehold.it/350x150"></div>
-								</div>
+
+							<?php endwhile; ?>
+							<?php endif; ?>
+								
+                <div class="clearfix"></div>
 							</section>
 						</main>
 
 				</div>
 
-			</div>
 
 
 <?php get_footer(); ?>
