@@ -33,22 +33,7 @@
 
 
                 <?php
-                  $first_query = new WP_Query(
-                  array(
-                  'post_type' => 'custom_type',
-                  'posts_per_page' => -1,
-									'meta_key' => 'order',
-									'orderby'	=> 'meta_value_num',
-                  'order' => 'ASC',
-                  'tax_query' => array(
-                        array(
-                        'taxonomy' => 'custom_cat',
-                        'field' => 'slug',
-                        'terms' => 'staff'
-                        )
-                  ))
-                  );
-                  $second_query = new WP_Query(
+                  $affiliates_query = new WP_Query(
                   array(
                   'post_type' => 'custom_type',
                   'posts_per_page' => -1,
@@ -95,30 +80,12 @@
                    ?>
                    
             </section>
-             <section class="entry-content cf">
 
-                <h3>Coaches</h3><?php while($first_query->have_posts()) : $first_query->the_post(); ?>
-
-                <article class="staff-grid">
-                    <div class="staff-img">
-                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?><?php the_post_thumbnail('medium'); ?><?php endif; ?>
-                    </div>
-
-                    <h4 class="staff-name"><?php the_title(); ?></h4>
-
-                    <div class="staff-bio">
-                        <?php the_content(); ?>
-                    </div>
-                </article><?php endwhile; ?><!-- end of the loop -->
-                <?php wp_reset_postdata();?>
-
-                <div class="clearfix"></div>
-             </section>
               <section class="entry-content cf">
 
                 <h3>Affiliates</h3>
                 <div class="home-affiliates">
-                <?php while($second_query->have_posts()) : $second_query->the_post(); ?>
+                <?php while($affiliates_query->have_posts()) : $affiliates_query->the_post(); ?>
 								
                 <article class="four-grid">
                     <div class="aff-logo">
@@ -133,7 +100,7 @@
 								</div>
                 <div class="clearfix"></div>
               </section>
-                <!--
+<!--               <section class="entry-content cf">
                 <h3>Alumni</h3><?php while($third_query->have_posts()) : $third_query->the_post(); ?>
 
                 <article class="grid">
@@ -147,20 +114,20 @@
                         </div>
                     </div>
                 </article><?php endwhile; ?>
-                <br>
--->
-
-                
+                </section> -->
+ 
+<!--
 							<section class="entry-content cf">
                 <h3>Colleges</h3><?php while($fourth_query->have_posts()) : $fourth_query->the_post(); ?>
                     <div class="text">
                         <div class="content">
                             <p><?php the_content(); ?></p>
                         </div>
-                    </div><?php endwhile; ?><!-- end of the loop -->
+                    </div><?php endwhile; ?>
                 <?php wp_reset_postdata();?>
                 <?php endif; wp_reset_postdata();?>
             </section>
+-->
         </div>
     </div><?php get_footer(); ?>
 </body>

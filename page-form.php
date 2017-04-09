@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Payment Page
+ Template Name: Form Page
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -30,7 +30,7 @@
 
 								</header>
 
-								<section class="entry-content cf" itemprop="articleBody">
+								<section class="entry-content form-entry-content cf" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)
 										the_content();
@@ -48,7 +48,11 @@
 
 						</main>
 						<div class="sign-up-sidebar">
-							<?php get_sidebar(); ?>
+							<div id="sidebar1" class="m-all t-2of3 d-5of7 last-col cf" role="complementary">
+								<div class="sidebar">
+							<?php the_field('form') ?>
+							</div>
+							</div>
 						</div>
 
 				</div>

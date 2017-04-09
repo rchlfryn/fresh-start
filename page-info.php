@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: College Page
+ Template Name: Staff Page
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -20,7 +20,7 @@
 
 <body>
     <div id="staff">
-        <div class="inner-content 8wrap cf">
+        <div class="inner-content wrap cf">
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
             <header class="article-header">
@@ -33,47 +33,47 @@
 
 
                 <?php
-                  $college_query = new WP_Query(
+                  $affiliates_query = new WP_Query(
                   array(
                   'post_type' => 'custom_type',
                   'posts_per_page' => -1,
-									'meta_key' => 'order',
-									'orderby'	=> 'meta_value_num',
+                  'orderby'=>'title',
                   'order' => 'ASC',
                   'tax_query' => array(
-                        array(
-                        'taxonomy' => 'custom_cat',
-                        'field' => 'slug',
-                        'terms' => 'college'
-                        )
+                      array(
+                      'taxonomy' => 'custom_cat',
+                      'field' => 'slug',
+                      'terms' => 'affiliates'
+                      )
                   ))
                   );
-                                        
+              
                   if ( have_posts() ) :               
                    ?>
                    
             </section>
-             <section class="entry-content cf">
 
-                <h3>College Prospects</h3><?php while($college_query->have_posts()) : $college_query->the_post(); ?>
+              <section class="entry-content cf">
 
-                <article class="staff-grid">
-                    <div class="staff-img">
-                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?><?php the_post_thumbnail('medium'); ?><?php endif; ?>
-                    </div>
+                <h3>Affiliates</h3>
+                <div class="home-affiliates">
+                <?php while($affiliates_query->have_posts()) : $affiliates_query->the_post(); ?>
+								
+                <article class="four-grid">
+                    <div class="aff-logo">
+                        <?php if ( has_post_thumbnail() ) : // check if the post has a Post Thumbnail assigned to it. ?><a target="_blank" href="<?php the_field('website');?>"><?php the_post_thumbnail(); ?></a><?php endif; ?>
 
-                    <h4 class="staff-name"><?php the_title(); ?></h4>
-
-                    <div class="staff-bio">
-                        <?php the_content(); ?>
+                        <div class="content">
+                            <h4><a target="_blank" href="<?php the_field('website');?>"><?php the_title(); ?></a></h4>
+                        </div>
                     </div>
                 </article><?php endwhile; ?><!-- end of the loop -->
                 <?php wp_reset_postdata();?>
-
+                <?php endif; wp_reset_postdata();?>
+								</div>
                 <div class="clearfix"></div>
-             </section>
+              </section>
 
-                
         </div>
     </div><?php get_footer(); ?>
 </body>

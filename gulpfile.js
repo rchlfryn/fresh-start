@@ -16,7 +16,7 @@ gulp.task('browserSync', function() {
 gulp.task('sass', function(){
   return gulp
     .src('./library/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('./library/css/'))
     .pipe(browserSync.reload({
       stream: true

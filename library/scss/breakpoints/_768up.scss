@@ -29,7 +29,7 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	max-width: 1100px;
+	max-width: 1040px;
 }
 
 /*********************
@@ -42,10 +42,20 @@ HEADER STYLES
 #menu-main-nav {display:block;}
 */
 }
+#logo {
+	font-size: 2.2em;
+	line-height: 1.333em;
+}
 
-	#logo {}
-#content {
-	margin-top: 8em;
+
+.inner-content {
+	margin-top: 6.8em;
+}
+.entry-content {
+	padding: 1.5em 4em;
+}
+.form-entry-content {
+	padding: 1.5em 2em;
 }
 /*********************
 NAVIGATION STYLES
@@ -94,7 +104,10 @@ NAVIGATION STYLES
 			z-index: 8999;
 			width: 100%;
 			right: 0;
-
+			-webkit-box-shadow: 0px 3px 10px 0px rgba(125,124,125,0.8);
+			-moz-box-shadow: 0px 3px 10px 0px rgba(125,124,125,0.8);
+			box-shadow: 0px 3px 10px 0px rgba(125,124,125,0.8);
+			transition-delay: .2s;
 			li {
 
 				a {
@@ -175,8 +188,8 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	margin: 0 0 1em 0;
-	padding: 1em;
+	margin: 0.5em 0 1em 0;
+	padding: 1em 3em;
 }
 
 	.widgettitle {
